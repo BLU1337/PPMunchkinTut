@@ -91,10 +91,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(OPENCV3_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OPENCV3_DIR)\x64\vc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_aruco3411d.lib;opencv_bgsegm3411d.lib;opencv_bioinspired3411d.lib;opencv_calib3d3411d.lib;opencv_ccalib3411d.lib;opencv_core3411d.lib;opencv_datasets3411d.lib;opencv_dnn_objdetect3411d.lib;opencv_dnn3411d.lib;opencv_dpm3411d.lib;opencv_face3411d.lib;opencv_features2d3411d.lib;opencv_flann3411d.lib;opencv_fuzzy3411d.lib;opencv_hfs3411d.lib;opencv_highgui3411d.lib;opencv_img_hash3411d.lib;opencv_imgcodecs3411d.lib;opencv_imgproc3411d.lib;opencv_line_descriptor3411d.lib;opencv_ml3411d.lib;opencv_objdetect3411d.lib;opencv_optflow3411d.lib;opencv_phase_unwrapping3411d.lib;opencv_photo3411d.lib;opencv_plot3411d.lib;opencv_reg3411d.lib;opencv_rgbd3411d.lib;opencv_saliency3411d.lib;opencv_shape3411d.lib;opencv_stereo3411d.lib;opencv_stitching3411d.lib;opencv_structured_light3411d.lib;opencv_superres3411d.lib;opencv_surface_matching3411d.lib;opencv_text3411d.lib;opencv_tracking3411d.lib;opencv_video3411d.lib;opencv_videoio3411d.lib;opencv_videostab3411d.lib;opencv_xfeatures2d3411d.lib;opencv_ximgproc3411d.lib;opencv_xobjdetect3411d.lib;opencv_xphoto3411d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -106,10 +109,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(OPENCV3_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OPENCV3_DIR)\x64\vc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_aruco3411d.lib;opencv_bgsegm3411d.lib;opencv_bioinspired3411d.lib;opencv_calib3d3411d.lib;opencv_ccalib3411d.lib;opencv_core3411d.lib;opencv_datasets3411d.lib;opencv_dnn_objdetect3411d.lib;opencv_dnn3411d.lib;opencv_dpm3411d.lib;opencv_face3411d.lib;opencv_features2d3411d.lib;opencv_flann3411d.lib;opencv_fuzzy3411d.lib;opencv_hfs3411d.lib;opencv_highgui3411d.lib;opencv_img_hash3411d.lib;opencv_imgcodecs3411d.lib;opencv_imgproc3411d.lib;opencv_line_descriptor3411d.lib;opencv_ml3411d.lib;opencv_objdetect3411d.lib;opencv_optflow3411d.lib;opencv_phase_unwrapping3411d.lib;opencv_photo3411d.lib;opencv_plot3411d.lib;opencv_reg3411d.lib;opencv_rgbd3411d.lib;opencv_saliency3411d.lib;opencv_shape3411d.lib;opencv_stereo3411d.lib;opencv_stitching3411d.lib;opencv_structured_light3411d.lib;opencv_superres3411d.lib;opencv_surface_matching3411d.lib;opencv_text3411d.lib;opencv_tracking3411d.lib;opencv_video3411d.lib;opencv_videoio3411d.lib;opencv_videostab3411d.lib;opencv_xfeatures2d3411d.lib;opencv_ximgproc3411d.lib;opencv_xobjdetect3411d.lib;opencv_xphoto3411d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -151,7 +157,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MunchkinCards.cpp" />
     <ClCompile Include="TTMunchkinTut.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CardTypeActions.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="MunchkinCards.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
