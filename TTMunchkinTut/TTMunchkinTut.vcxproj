@@ -157,13 +157,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BadThings.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CardTypeActions.cpp" />
+    <ClCompile Include="Extras.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MunchkinCards.cpp" />
     <ClCompile Include="TTMunchkinTut.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BadThings.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="CardTypeActions.h" />
     <ClInclude Include="common.h" />
+    <ClInclude Include="Extras.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="InputEvent.h" />
     <ClInclude Include="MunchkinCards.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

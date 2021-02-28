@@ -1,0 +1,53 @@
+\hypertarget{_game_state_8h}{}\doxysection{Game\+State.\+h File Reference}
+\label{_game_state_8h}\index{GameState.h@{GameState.h}}
+{\ttfamily \#include \char`\"{}opencv2/opencv.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgcodecs.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgproc.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}Button.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_mouse_params}{Mouse\+Params}}
+\item 
+struct \mbox{\hyperlink{struct_player_stats}{Player\+Stats}}
+\item 
+struct \mbox{\hyperlink{struct_game_state}{Game\+State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_game_state_8h_a5f278706f235727f39ae168af63b1d99}{Mouse\+Event}} \{ \mbox{\hyperlink{_game_state_8h_a5f278706f235727f39ae168af63b1d99a514fb8ed685cbc8ee54591fbd0f952cd}{lclick}}
+, \mbox{\hyperlink{_game_state_8h_a5f278706f235727f39ae168af63b1d99a1c152965cae38e5e22f2886c378c95e7}{rclick}}
+, \mbox{\hyperlink{_game_state_8h_a5f278706f235727f39ae168af63b1d99a3734a903022249b3010be1897042568e}{move}}
+, \mbox{\hyperlink{_game_state_8h_a5f278706f235727f39ae168af63b1d99a334c4a4c42fdb79d7ebc3e73b517e6f8}{none}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_game_state_8h_a5f278706f235727f39ae168af63b1d99}\label{_game_state_8h_a5f278706f235727f39ae168af63b1d99}} 
+\index{GameState.h@{GameState.h}!MouseEvent@{MouseEvent}}
+\index{MouseEvent@{MouseEvent}!GameState.h@{GameState.h}}
+\doxysubsubsection{\texorpdfstring{MouseEvent}{MouseEvent}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_game_state_8h_a5f278706f235727f39ae168af63b1d99}{Mouse\+Event}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{lclick@{lclick}!GameState.h@{GameState.h}}\index{GameState.h@{GameState.h}!lclick@{lclick}}}\mbox{\Hypertarget{_game_state_8h_a5f278706f235727f39ae168af63b1d99a514fb8ed685cbc8ee54591fbd0f952cd}\label{_game_state_8h_a5f278706f235727f39ae168af63b1d99a514fb8ed685cbc8ee54591fbd0f952cd}} 
+lclick&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rclick@{rclick}!GameState.h@{GameState.h}}\index{GameState.h@{GameState.h}!rclick@{rclick}}}\mbox{\Hypertarget{_game_state_8h_a5f278706f235727f39ae168af63b1d99a1c152965cae38e5e22f2886c378c95e7}\label{_game_state_8h_a5f278706f235727f39ae168af63b1d99a1c152965cae38e5e22f2886c378c95e7}} 
+rclick&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{move@{move}!GameState.h@{GameState.h}}\index{GameState.h@{GameState.h}!move@{move}}}\mbox{\Hypertarget{_game_state_8h_a5f278706f235727f39ae168af63b1d99a3734a903022249b3010be1897042568e}\label{_game_state_8h_a5f278706f235727f39ae168af63b1d99a3734a903022249b3010be1897042568e}} 
+move&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{none@{none}!GameState.h@{GameState.h}}\index{GameState.h@{GameState.h}!none@{none}}}\mbox{\Hypertarget{_game_state_8h_a5f278706f235727f39ae168af63b1d99a334c4a4c42fdb79d7ebc3e73b517e6f8}\label{_game_state_8h_a5f278706f235727f39ae168af63b1d99a334c4a4c42fdb79d7ebc3e73b517e6f8}} 
+none&\\
+\hline
+
+\end{DoxyEnumFields}

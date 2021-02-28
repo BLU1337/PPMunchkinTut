@@ -1,8 +1,17 @@
 #pragma once
 #include <string>;
 #include <vector>;
+# include "opencv2/opencv.hpp"
+# include "opencv2/imgcodecs.hpp"
+# include "opencv2/imgproc.hpp"
+#include <functional>
+#include "GameState.h"
+#include "BadThings.h"
+//#include "Extras.h"
 
 using namespace std;
+
+// --- enums
 enum class ParentCardType
 {
 	door,
@@ -17,10 +26,10 @@ enum class CardType
 	itemBuff,
 	monster,
 	race,
-	item
+	item,
+	removeCard
 
 };
-
 enum class ItemType
 {
 	armor,
@@ -32,11 +41,14 @@ enum class ItemType
 	clothing
 };
 
+// --- classes
+
 class MunchkinCard
 {
 public:
 	MunchkinCard() {}
 	MunchkinCard(
+		int _markerID,
 		const string& _cardName,
 		const string& _effect,
 		const string& _badThings,
@@ -71,6 +83,7 @@ public:
 	ParentCardType parentCardType;
 	CardType type;			//1=curse, 2=MunchClass, 3=joker, 4=lvlUp, 5=itemBuff, 6=monster, 7=race, 8=item
 	ItemType itemType;		//armor, shoes, hat, 
+	int markerID;
 	int strengthBoni;
 	int debuff;
 	int monsStrength;
@@ -79,6 +92,9 @@ public:
 	int itemValue;
 	int handsNeeded;
 	bool itemLarge;
+	// card functions
+	BadThingsFunc badThingsFunc;
+	//ExtrasFunc	  extrasFunc;
 	
 	static vector<MunchkinCard> cardsConstr();
 };

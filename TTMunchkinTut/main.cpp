@@ -4,8 +4,11 @@
 # include "opencv2/highgui.hpp"
 # include "opencv2/aruco.hpp"
 # include "opencv2/calib3d.hpp"
+#include "GameState.h"
 # include "MunchkinCards.h"
+#include "CardTypeActions.h"
 # include "common.h"
+#include "Button.h"
 
 # include <sstream>
 # include <iostream>
@@ -24,50 +27,15 @@ const float arucoSquareDimension = 0.02f; //meters
 const Size chessboardDimensions = Size(6, 9);
 
 vector<MunchkinCard> cards;
-vector<String> actions;
-std::unordered_map<std::string, std::function<bool()>> functMap;
+std::unordered_map<CardType, CardTypeFunc> functMap;
 
-struct MouseParams
-{
-	vector<Point> poly;
-	int markerId;
-	vector<Point2f> markerCorner;
-	vector<string> tutText;
-};
+GameState gamestate;
 
-struct PlayerStats
-{
-	string sex;
-	vector<string> bonis;
-	vector<string> curses;
-	vector<string> itemEffects;
-	vector<string> munchClasses;
-	vector<string> munchRaces;
-	int lvl;
-	int strength;
-	int hands;
-	int runStrength;
-	bool carriesLargeItems;
-	bool hasArmor;
-	bool hasHat;
-	bool hasShoes;
-};
 
-PlayerStats player01;
-
-bool removeArmor()
-{
-	std::cout << "you loose your armor" << endl;
-}
-
-bool runAway()
-{
-	int diceRoll = rand() % 6 + 1;
-	if (diceRoll > player01.runStrength)
-		return true;
-	else
-		return false;
-}
+// button callbacks
+void button_exit(const Button& b);
+void button_continue(const Button& b);
+void button_end_turn(const Button& b);
 
 void update()
 {
@@ -77,211 +45,57 @@ void update()
 void logic()
 {
 	//Rect rect(corners[1].x, corners[1].y, corners[0].y - corners[1].y, corners[0].y - corners[1].y);
-	if (pointPolygonTest(mp->poly, clickP, false) == 1/*rect.contains(clickP)*/)
+	if (gamestate.mouseparams.event == MouseEvent::lclick)
 	{
-		singleCard = cards.at(mp->markerId);
-		std::cout << "Left button of mouse is clicked _ position (" << x << "," << y << ")" << endl;
-		std::cout << "markerId: " << mp->markerId << endl;
-		std::cout << "Name: " << cards.at(mp->markerId).cardName << endl;
-		std::cout << "type: " << (int)cards.at(mp->markerId).type << endl;
+		gamestate.mouseparams.event = MouseEvent::none;
 
-		switch (singleCard.parentCardType)
+		// process button events
+		for (const Button& b : gamestate.buttons)
 		{
-		case(ParentCardType::door):
-			switch (singleCard.type)
+			if (b.poll_click(gamestate.mouseparams.clickP, gamestate.canvas_size))
 			{
-			case(CardType::curse):
-				player01.curses.push_back(singleCard.effect);
-				std::cout << "TODO: implement function call for effects: " << singleCard.effect << endl;
-				break;
-			case(CardType::joker):
-				std::cout << "TODO: implement function call for effects: " << singleCard.effect << endl;
-				break;
-			case(CardType::monster):
-				monsStrength = singleCard.monsStrength;
-				playerStrength = player01.lvl + player01.strength;
-				// TODO: monsStrength +- monster effects functionCall/code in string?
-				if (monsStrength > playerStrength /* && monsStrength > playerStrength + bonis*/)
-				{
-					mp->tutText = { "You are too weak!", "Press 'space' to try to run away!" };
-					//do
-					//{
-					//
-					//} while (waitKey(30) != 32);
-					if (runAway())
-						mp->tutText = { "You managed to run away!", "Continue your Turn!" };
-					else
-						mp->tutText = { "Failed to run away!", "Now face the evil things", singleCard.badThings };
-					std::cout << "Failed to run away! Now face the evil things " << singleCard.cardName << " will do to you!!!" << singleCard.badThings << endl;
-				}
-				else
-				{
-					std::cout << "You killed " << singleCard.cardName << "! Congratulation!" << endl;
-					std::cout << "Your level was raised by : " << singleCard.lvlUp << endl;
-					player01.lvl += singleCard.lvlUp;
-					std::cout << "Your new level is: " << player01.lvl << endl;
-					std::cout << "You can collect " << singleCard.treasures << " treasures! Good luck in your next turn!" << endl;
-
-				}
-				break;
-			case(CardType::munchClass):
-				if (player01.munchClasses.empty() or find(player01.bonis.begin(), player01.bonis.end(), "you can use multiple Classes") != player01.bonis.end())
-				{
-					player01.munchClasses.push_back(singleCard.cardName);
-					for (int i = 0; i < singleCard.bonis.size(); i++)
-						player01.bonis.push_back(singleCard.bonis.at(i));
-				}
-				else
-					std::cout << "You have too many Classes take Card to Hand" << endl;
-				break;
-			case(CardType::race):
-				if (player01.munchRaces.empty() or find(player01.bonis.begin(), player01.bonis.end(), "you can use multiple Races") != player01.bonis.end())
-				{
-					player01.munchRaces.push_back(singleCard.cardName);
-					for (int i = 0; i < singleCard.bonis.size(); i++)
-						player01.bonis.push_back(singleCard.bonis.at(i));
-				}
-				break;
-			default:
-				break;
+				// do stuff
 			}
-			break;
-		case(ParentCardType::treasure):
-			switch (singleCard.type)
-			{
-			case(CardType::item):
-				switch (singleCard.itemType)
-				{
-					//Schummeln?
-				case(ItemType::joker):
-					player01.itemEffects.push_back(singleCard.itemEffect);
-					break;
-				case(ItemType::boni):
-					for (int i = 0; i < singleCard.bonis.size(); i++)
-						player01.bonis.push_back(singleCard.bonis[i]);
-					break;
-				case(ItemType::hat):
-					// TODO: Check for itemNeeds on singleCard.itemNeeds
-					if (player01.hasHat)
-					{
-						if (!singleCard.bonis.empty())
-						{
-							for (int i = 0; i < singleCard.bonis.size(); i++)
-								player01.bonis.push_back(singleCard.bonis[i]);
-						}
-						player01.strength += singleCard.strengthBoni;
-						player01.hasHat = true;
-					}
-					else
-						cout << "You can only carry one hat! Except a cards grands you more hats!" << endl;
-					break;
-				case(ItemType::armor):
-					// TODO: Check for itemNeeds on singleCard.itemNeeds
-					if (player01.hasArmor)
-					{
-						if (!singleCard.bonis.empty())
-						{
-							for (int i = 0; i < singleCard.bonis.size(); i++)
-								player01.bonis.push_back(singleCard.bonis[i]);
-						}
-						player01.strength += singleCard.strengthBoni;
-						player01.hasArmor = true;
-					}
-					else
-						cout << "You can only carry one armor! Except a cards grands you more armors!" << endl;
-					break;
-				case(ItemType::shoes):
-					// TODO: Check for itemNeeds on singleCard.itemNeeds
-					if (player01.hasShoes)
-					{
-						if (!singleCard.bonis.empty())
-						{
-							for (int i = 0; i < singleCard.bonis.size(); i++)
-								player01.bonis.push_back(singleCard.bonis[i]);
-						}
-						player01.strength += singleCard.strengthBoni;
-						player01.hasShoes = true;
-					}
-					else
-						cout << "You can only carry one shoes! Except a cards grands you more shoes!" << endl;
-					break;
-				case(ItemType::clothing):
-					// TODO: Check for itemNeeds on singleCard.itemNeeds
-					if (!singleCard.bonis.empty())
-					{
-						for (int i = 0; i < singleCard.bonis.size(); i++)
-							player01.bonis.push_back(singleCard.bonis[i]);
-					}
-					player01.strength += singleCard.strengthBoni;
-					break;
-				case(ItemType::weapon):
-					//TODO: Check for itemNeeds on singleCard.itemNeeds
-					if (player01.hands >= singleCard.handsNeeded)
-					{
-						if (player01.carriesLargeItems == false || singleCard.itemLarge == false)
-						{
-							if (!singleCard.bonis.empty())
-							{
-								for (int i = 0; i < singleCard.bonis.size(); i++)
-									player01.bonis.push_back(singleCard.bonis[i]);
-							}
-							player01.strength += singleCard.strengthBoni;
-							player01.hands -= singleCard.handsNeeded;
-							player01.carriesLargeItems = singleCard.itemLarge ? true : false;
-
-						}
-						else
-							cout << "You can only carry one large item! Except a cards grands you more large items!" << endl;
-					}
-					else
-						cout << "You need more hands to carry this item!" << endl;
-					break;
-				default:
-					break;
-				}
-				break;
-			case(CardType::itemBuff):
-				//TODO: verweis auf ausrüstung?
-				if (!singleCard.bonis.empty())
-				{
-					for (int i = 0; i < singleCard.bonis.size(); i++)
-						player01.bonis.push_back(singleCard.bonis[i]);
-				}
-				player01.strength += singleCard.strengthBoni;
-				break;
-			case(CardType::lvlUp):
-				if (!singleCard.itemNeeds.empty())
-					std::cout << "You Need to do this: " << singleCard.itemNeeds << endl;
-
-				if (player01.lvl < 9)
-					player01.lvl += singleCard.lvlUp;
-				else
-					std::cout << "You are not able to use this with lvl 9" << endl;
-				break;
-			default:
-				break;
-			}
-			break;
-		default:
-			break;
 		}
 
-		std::cout << "PLAYERSTATS: " << endl;
-		std::cout << "Player level: " << player01.lvl << endl;
-		std::cout << "Player strength: " << player01.strength << endl;
-		std::cout << "Player available hands: " << player01.hands << endl;
-		std::cout << "Player carries large object: " << player01.carriesLargeItems << endl;
-		for (int i = 0; i < player01.bonis.size(); i++)
-			std::cout << "Player boni: " << i << " " << player01.bonis.at(i) << endl;
+		if ((gamestate.mouseparams.poly.size() > 2 && pointPolygonTest(gamestate.mouseparams.poly, gamestate.mouseparams.clickP, false) == 1/*rect.contains(clickP)*/) || (gamestate.should_continue == true))
+		{
+			MunchkinCard singleCard = cards.at(gamestate.mouseparams.markerId);
+			std::cout << "Left button of mouse is clicked _ position (" << gamestate.mouseparams.clickP.x << "," << gamestate.mouseparams.clickP.y << ")" << endl;
+			std::cout << "markerId: " << gamestate.mouseparams.markerId << endl;
+			std::cout << "Name: " << cards.at(gamestate.mouseparams.markerId).cardName << endl;
+			std::cout << "type: " << (int)cards.at(gamestate.mouseparams.markerId).type << endl;
+			auto cardtype = cards.at(gamestate.mouseparams.markerId).type;
 
-		for (int i = 0; i < player01.curses.size(); i++)
-			std::cout << "Player curse: " << i << " " << player01.curses.at(i) << endl;
+			if (functMap.find(cardtype) != functMap.end())
+			{
+				functMap[cardtype](gamestate, singleCard);
+			}
+		}
 
-		for (int i = 0; i < player01.itemEffects.size(); i++)
-			std::cout << "Player itemEffects: " << i << " " << player01.itemEffects.at(i) << endl;
+	}
+	if (gamestate.mouseparams.event == MouseEvent::rclick)
+	{
+		gamestate.mouseparams.event = MouseEvent::none;
 
-		if (player01.lvl >= 10)
-			std::cout << "You reached level 10! Congratulations you Won your first Round of Munchkin!!!" << endl;
+		if ((gamestate.mouseparams.poly.size() > 2 && pointPolygonTest(gamestate.mouseparams.poly, gamestate.mouseparams.clickP, false) == 1))
+		{
+			MunchkinCard singleCard = cards.at(gamestate.mouseparams.markerId);
+			auto cardtype = cards.at(gamestate.mouseparams.markerId).type;
+			gamestate.remove_card = true;
+
+			if (functMap.find(cardtype) != functMap.end())
+			{
+				functMap[cardtype](gamestate, singleCard);
+			}
+		}
+	}
+
+	if (gamestate.end_turn == true)
+	{
+
+		gamestate.buttons.at(1).visible = true;
+		gamestate.buttons.at(1).callback = button_end_turn;
 	}
 
 }
@@ -441,17 +255,20 @@ void cameraCalibration(vector<Mat> calibrationImages, Size boardSize, float squa
 
 void callBackFunction(int event, int x, int y, int flags, void* userdata)
 {
-	MouseParams* mp = (MouseParams*)userdata;
-	Point clickP(x,y);
-	MunchkinCard singleCard;
-	int monsStrength, playerStrength = 0;
+	gamestate.mouseparams.clickP.x = x;
+	gamestate.mouseparams.clickP.y = y;
 	if (event == EVENT_LBUTTONDOWN)
 	{
-		actions.push_back("leftClick");
+		//logic();
+		gamestate.mouseparams.event = MouseEvent::lclick;
 	}
 	else if (event == EVENT_RBUTTONDOWN)
 	{
-		std::cout << "Right button of mouse is clicked _ position (" << x << "," << y << ")" << endl;
+		gamestate.mouseparams.event = MouseEvent::rclick;
+	}
+	else
+	{
+		gamestate.mouseparams.event = MouseEvent::none;
 	}
 }
 
@@ -525,8 +342,7 @@ Color chooseCardColor(int markerId)
 int startWebcamMonitoring(const Mat& cameraMatrix, const Mat& distanceCoeffiecients, float arucoSquareDimensions)
 {
 	Mat frame;
-	MouseParams params;
-	params.tutText = {"Um zu beginnen lege eine Karte", "nach der anderen vor die Kamera", "und klicke mit der linken Maustaste", "auf das farbige Quadrat!"};
+	gamestate.mouseparams.tutText = {"Um zu beginnen lege eine ", "Karte nach der anderen vor ", "die Kamera und klicke mit der ", "linken Maustaste auf ", "das farbige Quadrat!"};
 	int offset = 25;
 
 	vector<int> markerIds;
@@ -551,15 +367,16 @@ int startWebcamMonitoring(const Mat& cameraMatrix, const Mat& distanceCoeffiecie
 
 	vector<Vec3d> rotationVectors, translationVectors;
 
-	while (true)
+	while (!gamestate.should_exit)
 	{
 		if (!vid.read(frame))
 			break;
 
 		aruco::detectMarkers(frame, markerDictionary, markerCorners, markerIds);
-		for( int i = 0; i < params.tutText.size(); i++)
+		for( int i = 0; i < gamestate.mouseparams.tutText.size(); i++)
 		{
-			cv::putText(frame, params.tutText.at(i), Point(50, 50+i*offset), FONT_HERSHEY_COMPLEX_SMALL, 1.0, Scalar(0, 204, 0));
+			cv::putText(frame, gamestate.mouseparams.tutText.at(i), Point(50, 50 + i * offset), FONT_HERSHEY_COMPLEX, 1.0, Scalar(0, 0, 0), 4);
+			cv::putText(frame, gamestate.mouseparams.tutText.at(i), Point(50, 50+i*offset), FONT_HERSHEY_COMPLEX, 1.0, Scalar(0, 204, 0), 2);
 		}
 
 		if (markerIds.size() > 0)
@@ -570,7 +387,7 @@ int startWebcamMonitoring(const Mat& cameraMatrix, const Mat& distanceCoeffiecie
 			for (int i = 0; i < markerIds.size(); i++)
 			{
 				//aruco::drawAxis(frame, cameraMatrix, distanceCoeffiecients, rotationVectors[i], translationVectors[i], 0.1);
-				params.markerId = markerIds.at(i);
+				gamestate.mouseparams.markerId = markerIds.at(i);
 				for (int j = markerCorners[i].size() - 4; j < markerCorners[i].size(); j++)
 				{
 					corners.push_back(markerCorners[i][j]);
@@ -580,12 +397,12 @@ int startWebcamMonitoring(const Mat& cameraMatrix, const Mat& distanceCoeffiecie
 					params.markerCorner.push_back(markerCorners[i][j]);
 					//corners.push_back(markerCorners[i][j]);
 				}*/
-				approxPolyDP(corners, poly, 0, true);
-				params.poly = poly;
+				cv::approxPolyDP(corners, poly, 0, true);
+				gamestate.mouseparams.poly = poly;
 				
-				cardColor = chooseCardColor(markerIds.at(i));
 				try
 				{
+					cardColor = chooseCardColor(markerIds.at(i));
 					cv::fillPoly(frame, poly, cv::Scalar(cardColor[2], cardColor[1], cardColor[0]));
 					m = moments(poly);
 					Point center(m.m10 / m.m00, m.m01 / m.m00);
@@ -594,15 +411,25 @@ int startWebcamMonitoring(const Mat& cameraMatrix, const Mat& distanceCoeffiecie
 				catch (const std::out_of_range& ex)
 				{
 					std::cerr << "Invalid marker ID thingy" << std::endl;
-					return 1;
+					continue;
 					//throw ex;
 				}
 				corners.clear();
-				cv::setMouseCallback("Webcam", callBackFunction, (void*) &params);
 			}
 		}
+		cv::setMouseCallback("Webcam", callBackFunction);
+		// draw buttons
+		for (const Button& b : gamestate.buttons)
+		{
+			b.draw(frame);
+		}
+		// show frame
+		gamestate.canvas_size = cv::Size(frame.cols, frame.rows);
 		imshow("Webcam", frame);
-		if (waitKey(30) == 27) break;
+		if (waitKey(5) == 27) break;
+
+		// poll game logic
+		logic();
 	}
 
 	return 1;
@@ -674,6 +501,7 @@ void cameraCalibrationProcess(Mat& cameraMatrix, Mat& distanceCoefficients)
 
 }
 
+
 int main(int argv, char** argc)
 {
 	//try
@@ -684,19 +512,58 @@ int main(int argv, char** argc)
 
 		Mat distanceCoefficients;
 
-
-		functMap["removeArmor"] = removeArmor;
-
 		cards = MunchkinCard::cardsConstr();
-		player01.sex = "male";
-		player01.lvl = 1;
-		player01.strength = 0;
-		player01.hands = 2;
-		player01.carriesLargeItems = false;
-		player01.hasArmor = false;
-		player01.hasHat = false;
-		player01.hasShoes = false;
-		player01.runStrength = 4;
+		gamestate.player01.sex = "male";
+		gamestate.player01.lvl = 1;
+		gamestate.player01.strength = 0;
+		gamestate.player01.hands = 2;
+		gamestate.player01.carriesLargeItems = false;
+		gamestate.player01.hasArmor = false;
+		gamestate.player01.hasHat = false;
+		gamestate.player01.hasShoes = false;
+		gamestate.player01.runStrength = 4;
+		gamestate.player01.availableClasses = 1;
+		gamestate.player01.availableRaces = 1;
+		gamestate.should_exit = false;
+		gamestate.should_continue = false;
+		gamestate.run_away = false;
+		gamestate.end_turn = false;
+		gamestate.remove_card = false;
+		gamestate.mouseparams.event = MouseEvent::none;
+
+		// setup buttons
+		// exit button
+		gamestate.buttons.push_back(
+			Button{
+				0,
+				cv::Rect(5, 5, 25, 25),
+				cv::Scalar(255, 0, 0),
+				true,
+				ButtonOrigin::topright,
+				button_exit
+			}
+		);
+
+		// continue button
+		gamestate.buttons.push_back(
+			Button{
+				1,
+				cv::Rect(5, 5, 50, 50),
+				cv::Scalar(0, 255, 0),
+				false,
+				ButtonOrigin::bottomright,
+				button_continue
+			}
+		);
+
+		functMap[CardType::curse] = cardtypeaction::curse;
+		functMap[CardType::item] = cardtypeaction::item;
+		functMap[CardType::monster] = cardtypeaction::monster;
+		functMap[CardType::munchClass] = cardtypeaction::munchClass;
+		functMap[CardType::race] = cardtypeaction::race;
+		functMap[CardType::itemBuff] = cardtypeaction::itemBuff;
+		functMap[CardType::joker] = cardtypeaction::joker;
+		functMap[CardType::lvlUp] = cardtypeaction::lvlUp;
 	
 		//cameraCalibrationProcess(cameraMatrix, distanceCoefficients);
 		loadCameraCalibration("CameraCalibration", cameraMatrix, distanceCoefficients);
@@ -714,4 +581,27 @@ int main(int argv, char** argc)
 	//	std::cerr << "unknown error" << std::endl;
 	//	return 0;
 	//}	
+}
+
+void button_exit(const Button & b)
+{
+	gamestate.should_exit = true;
+	//std::cout << "Button " << b.id << std::endl;
+}
+
+void button_continue(const Button & b)
+{
+	gamestate.should_continue = true;
+	gamestate.buttons.at(1).visible = false;
+
+}
+
+void button_end_turn(const Button & b)
+{
+	gamestate.end_turn = false;
+	gamestate.buttons.at(1).visible = false;
+	gamestate.mouseparams.tutText = { "Nachdem du deine Schaetze ", "durchgesehen und ggf ausgeruestet ", "hast kommt nun die milde Gabe!", "gebe so viele Karten an", "die Person mit niedrigstem level", ", oder lege sie ab wenn du", "das niedrigste level hast, ", "bis du nurnoch 5 Karten hast!" };
+	gamestate.buttons.at(1).visible = false;
+	gamestate.buttons.at(1).callback = button_continue;
+
 }

@@ -5,6 +5,7 @@ using namespace std;
 
 
 MunchkinCard::MunchkinCard(
+		int _markerID,
 		const string & _cardName,
 		const string & _effect,
 		const string & _badThings,
@@ -23,6 +24,7 @@ MunchkinCard::MunchkinCard(
 		int _handsNeeded,
 		bool _itemLarge
 	) :
+		markerID(_markerID),
 		cardName(_cardName),
 		effect(_effect),
 		bonis(_bonis),
@@ -48,6 +50,7 @@ vector<MunchkinCard> MunchkinCard::cardsConstr() {
 
 	MunchkinCard card0;
 
+	card0.markerID = 0;
 	card0.cardName = "FenrisWolf";
 	card0.type = CardType::monster;
 	card0.parentCardType = ParentCardType::door;
@@ -55,6 +58,7 @@ vector<MunchkinCard> MunchkinCard::cardsConstr() {
 	card0.badThings = "hands--";
 	card0.lvlUp = 2;
 	card0.treasures = 4;
+	card0.badThingsFunc = badthings::looseHand;
 
 	//cards[0].cardName = "FenrisWolf";
 	//cards[0].type = CardType::monster;
@@ -64,6 +68,7 @@ vector<MunchkinCard> MunchkinCard::cardsConstr() {
 	//cards[0].treasures = 4;
 
 	MunchkinCard card1;
+	card1.markerID = 1;
 	card1.cardName = "J.R.R. Trollkin";
 	card1.type = CardType::monster;
 	card1.parentCardType = ParentCardType::door;
@@ -72,8 +77,10 @@ vector<MunchkinCard> MunchkinCard::cardsConstr() {
 	card1.badThings = "read all following monster cards out lout until you kill a monster without help of others";
 	card1.lvlUp = 1;
 	card1.treasures = 2;
+	card1.badThingsFunc = badthings::emptyBadThings;
 
 	MunchkinCard card2;
+	card2.markerID = 2;
 	card2.cardName = "Morgan Le Fay";
 	card2.type = CardType::monster;
 	card2.parentCardType = ParentCardType::door;
@@ -82,37 +89,45 @@ vector<MunchkinCard> MunchkinCard::cardsConstr() {
 	card2.badThings = "male Munchkins die! Female Munchkins lvl--";
 	card2.lvlUp = 2;
 	card2.treasures = 4;
+	card2.badThingsFunc = badthings::maleDeadFemaleLevelDown;
 
 	MunchkinCard card3;
+	card3.markerID = 3;
 	card3.cardName = "";
 
 	MunchkinCard card4;
+	card4.markerID = 4;
 	card4.cardName = "";
 
 	MunchkinCard card5;
+	card5.markerID = 5;
 	card5.cardName = "";
 
 	MunchkinCard card6;
+	card6.markerID = 6;
 	card6.cardName = "Krieger";
 	card6.type = CardType::munchClass;
 	card6.parentCardType = ParentCardType::door;
-	card6.bonis.push_back("Lege im Kampf bis zu 3 Karten ab für jeweils +1;");
+	card6.bonis.push_back("Lege im Kampf bis zu 3 Karten ab fï¿½r jeweils +1;");
 	card6.bonis.push_back("Bei Gleichstand im Kampf gewinnst du;");
 
 	MunchkinCard card7;
+	card7.markerID = 7;
 	card7.cardName = "Schummeln!";
 	card7.type = CardType::joker;
 	card7.parentCardType = ParentCardType::door;
-	card7.effect = "Lege Karte an Gegenstand du darfst diesen ausrüsten egal was die Vorraussetzungen sind";
+	card7.effect = "Lege Karte an Gegenstand du darfst diesen ausrï¿½sten egal was die Vorraussetzungen sind";
 
 	MunchkinCard card8;
+	card8.markerID = 8;
 	card8.cardName = "Zwerg";
 	card8.type = CardType::race;
 	card8.parentCardType = ParentCardType::door;
-	card8.bonis.push_back("beliebige Anzahl großer Gegenstände;");
+	card8.bonis.push_back("beliebige Anzahl groï¿½er Gegenstï¿½nde;");
 	card8.bonis.push_back("6 Karten auf Hand erlaubt;");
 
 	MunchkinCard card9;
+	card9.markerID = 9;
 	card9.cardName = "Wunschring";
 	card9.parentCardType = ParentCardType::treasure;
 	card9.type = CardType::item;
@@ -121,6 +136,7 @@ vector<MunchkinCard> MunchkinCard::cardsConstr() {
 	card9.itemValue = 500;
 
 	MunchkinCard card10;
+	card10.markerID = 10;
 	card10.cardName = "Pfeil und Bogen des Herkules";
 	card10.parentCardType = ParentCardType::treasure;
 	card10.type = CardType::item;
@@ -131,6 +147,7 @@ vector<MunchkinCard> MunchkinCard::cardsConstr() {
 	card10.itemValue = 700;
 
 	MunchkinCard card11;
+	card11.markerID = 11;
 	card11.cardName = "Magisches Fagott";
 	card11.parentCardType = ParentCardType::treasure;
 	card11.type = CardType::item;
@@ -141,6 +158,7 @@ vector<MunchkinCard> MunchkinCard::cardsConstr() {
 	card11.itemValue = 600;
 
 	MunchkinCard card12;
+	card12.markerID = 12;
 	card12.cardName = "Bermudashorts der Unverwundbarkeit";
 	card12.parentCardType = ParentCardType::treasure;
 	card12.type = CardType::item;
@@ -150,22 +168,26 @@ vector<MunchkinCard> MunchkinCard::cardsConstr() {
 	card12.itemValue = 400;
 
 	MunchkinCard card13;
+	card13.markerID = 13;
 	card13.cardName = "von Gott gegeben";
 	card13.parentCardType = ParentCardType::treasure;
 	card13.type = CardType::itemBuff;
 	card13.strengthBoni = 3;
 
 	MunchkinCard card14;
+	card14.markerID = 14;
 	card14.cardName = "Ueberlebe Ragnar\x94k";
 	card14.parentCardType = ParentCardType::treasure;
 	card14.type = CardType::lvlUp;
 	card14.lvlUp = 1;
 
 	MunchkinCard card15;
+	card15.markerID = 15;
 	card15.cardName = "FLUCH! Die Laune des Schicksals";
 	card15.parentCardType = ParentCardType::door;
 	card15.type = CardType::curse;
 	card15.effect = "Verliere deine Klasse";
+	card15.badThingsFunc = badthings::looseClass;
 
 	cards.push_back(std::move(card0));
 	cards.push_back(std::move(card1));

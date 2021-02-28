@@ -1,0 +1,508 @@
+\begin{theindex}
+
+  \item {armor}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {arucoSquareDimension}
+    \subitem {main.cpp}, \hyperpage{36}
+  \item {availableClasses}
+    \subitem {PlayerStats}, \hyperpage{23}
+  \item {availableRaces}
+    \subitem {PlayerStats}, \hyperpage{23}
+
+  \indexspace
+
+  \item {badThings}
+    \subitem {MunchkinCard}, \hyperpage{20}
+  \item {badthings}, \hyperpage{7}
+    \subitem {emptyBadThings}, \hyperpage{7}
+    \subitem {looseClass}, \hyperpage{7}
+    \subitem {looseHand}, \hyperpage{7}
+    \subitem {looseLevel}, \hyperpage{8}
+    \subitem {maleDeadFemaleLevelDown}, \hyperpage{8}
+    \subitem {playerDies}, \hyperpage{8}
+  \item {BadThings.cpp}, \hyperpage{27}
+  \item {BadThings.h}, \hyperpage{27}
+    \subitem {BadThingsFunc}, \hyperpage{28}
+  \item {BadThingsFunc}
+    \subitem {BadThings.h}, \hyperpage{28}
+  \item {badThingsFunc}
+    \subitem {MunchkinCard}, \hyperpage{20}
+  \item {BadThingsRetVal}, \hyperpage{11}
+  \item {boni}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {bonis}
+    \subitem {MunchkinCard}, \hyperpage{20}
+    \subitem {PlayerStats}, \hyperpage{23}
+  \item {bottomleft}
+    \subitem {Button.h}, \hyperpage{29}
+  \item {bottomright}
+    \subitem {Button.h}, \hyperpage{29}
+  \item {Button}, \hyperpage{11}
+    \subitem {Button}, \hyperpage{12}
+    \subitem {callback}, \hyperpage{13}
+    \subitem {color}, \hyperpage{13}
+    \subitem {draw}, \hyperpage{12}
+    \subitem {id}, \hyperpage{13}
+    \subitem {operator=}, \hyperpage{12}
+    \subitem {origin}, \hyperpage{13}
+    \subitem {poll\_click}, \hyperpage{13}
+    \subitem {rect}, \hyperpage{13}
+    \subitem {visible}, \hyperpage{13}
+  \item {Button.cpp}, \hyperpage{28}
+  \item {Button.h}, \hyperpage{28}
+    \subitem {bottomleft}, \hyperpage{29}
+    \subitem {bottomright}, \hyperpage{29}
+    \subitem {button\_callback}, \hyperpage{28}
+    \subitem {ButtonOrigin}, \hyperpage{28}
+    \subitem {topleft}, \hyperpage{29}
+    \subitem {topright}, \hyperpage{29}
+  \item {button\_callback}
+    \subitem {Button.h}, \hyperpage{28}
+  \item {button\_continue}
+    \subitem {main.cpp}, \hyperpage{33}
+  \item {button\_end\_turn}
+    \subitem {main.cpp}, \hyperpage{34}
+  \item {button\_exit}
+    \subitem {main.cpp}, \hyperpage{34}
+  \item {ButtonOrigin}
+    \subitem {Button.h}, \hyperpage{28}
+  \item {buttons}
+    \subitem {GameState}, \hyperpage{14}
+
+  \indexspace
+
+  \item {calbirationSquareDimension}
+    \subitem {main.cpp}, \hyperpage{36}
+  \item {callback}
+    \subitem {Button}, \hyperpage{13}
+  \item {callBackFunction}
+    \subitem {main.cpp}, \hyperpage{34}
+  \item {cameraCalibration}
+    \subitem {main.cpp}, \hyperpage{34}
+  \item {cameraCalibrationProcess}
+    \subitem {main.cpp}, \hyperpage{34}
+  \item {canvas\_size}
+    \subitem {GameState}, \hyperpage{15}
+  \item {cardName}
+    \subitem {MunchkinCard}, \hyperpage{20}
+  \item {cards}
+    \subitem {main.cpp}, \hyperpage{36}
+  \item {cardsConstr}
+    \subitem {MunchkinCard}, \hyperpage{19}
+  \item {CardType}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {cardtypeaction}, \hyperpage{8}
+    \subitem {curse}, \hyperpage{8}
+    \subitem {item}, \hyperpage{9}
+    \subitem {itemBuff}, \hyperpage{9}
+    \subitem {joker}, \hyperpage{9}
+    \subitem {lvlUp}, \hyperpage{9}
+    \subitem {monster}, \hyperpage{9}
+    \subitem {munchClass}, \hyperpage{9}
+    \subitem {race}, \hyperpage{10}
+  \item {CardTypeActions.cpp}, \hyperpage{29}
+    \subitem {runAway}, \hyperpage{29}
+  \item {CardTypeActions.h}, \hyperpage{29}
+    \subitem {CardTypeFunc}, \hyperpage{30}
+  \item {CardTypeFunc}
+    \subitem {CardTypeActions.h}, \hyperpage{30}
+  \item {CardTypeRetVal}, \hyperpage{14}
+  \item {carriesLargeItems}
+    \subitem {PlayerStats}, \hyperpage{23}
+  \item {chessboardDimensions}
+    \subitem {main.cpp}, \hyperpage{37}
+  \item {chooseCardColor}
+    \subitem {main.cpp}, \hyperpage{34}
+  \item {clickP}
+    \subitem {MouseParams}, \hyperpage{16}
+  \item {clothing}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {Color}
+    \subitem {munch\_tut}, \hyperpage{10}
+  \item {color}
+    \subitem {Button}, \hyperpage{13}
+  \item {common.h}, \hyperpage{30}
+  \item {createArucoMarkers}
+    \subitem {main.cpp}, \hyperpage{35}
+  \item {createKnownBoardPositions}
+    \subitem {main.cpp}, \hyperpage{35}
+  \item {curse}
+    \subitem {cardtypeaction}, \hyperpage{8}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {curses}
+    \subitem {PlayerStats}, \hyperpage{23}
+
+  \indexspace
+
+  \item {debuff}
+    \subitem {MunchkinCard}, \hyperpage{20}
+  \item {door}
+    \subitem {MunchkinCards.h}, \hyperpage{39}
+  \item {draw}
+    \subitem {Button}, \hyperpage{12}
+
+  \indexspace
+
+  \item {effect}
+    \subitem {MunchkinCard}, \hyperpage{20}
+  \item {emptyBadThings}
+    \subitem {badthings}, \hyperpage{7}
+  \item {end\_turn}
+    \subitem {GameState}, \hyperpage{15}
+  \item {event}
+    \subitem {MouseParams}, \hyperpage{17}
+  \item {EventType}
+    \subitem {InputEvent.h}, \hyperpage{32}
+  \item {extras}, \hyperpage{10}
+  \item {Extras.cpp}, \hyperpage{30}
+  \item {Extras.h}, \hyperpage{31}
+    \subitem {ExtrasFunc}, \hyperpage{31}
+  \item {ExtrasFunc}
+    \subitem {Extras.h}, \hyperpage{31}
+  \item {ExtrasRetVal}, \hyperpage{14}
+
+  \indexspace
+
+  \item {functMap}
+    \subitem {main.cpp}, \hyperpage{37}
+
+  \indexspace
+
+  \item {GameState}, \hyperpage{14}
+    \subitem {buttons}, \hyperpage{14}
+    \subitem {canvas\_size}, \hyperpage{15}
+    \subitem {end\_turn}, \hyperpage{15}
+    \subitem {mouseparams}, \hyperpage{15}
+    \subitem {player01}, \hyperpage{15}
+    \subitem {remove\_card}, \hyperpage{15}
+    \subitem {run\_away}, \hyperpage{15}
+    \subitem {should\_continue}, \hyperpage{15}
+    \subitem {should\_exit}, \hyperpage{15}
+  \item {gamestate}
+    \subitem {main.cpp}, \hyperpage{37}
+  \item {GameState.h}, \hyperpage{31}
+    \subitem {lclick}, \hyperpage{32}
+    \subitem {MouseEvent}, \hyperpage{31}
+    \subitem {move}, \hyperpage{32}
+    \subitem {none}, \hyperpage{32}
+    \subitem {rclick}, \hyperpage{32}
+  \item {getChessboardCorners}
+    \subitem {main.cpp}, \hyperpage{35}
+
+  \indexspace
+
+  \item {hands}
+    \subitem {PlayerStats}, \hyperpage{24}
+  \item {handsNeeded}
+    \subitem {MunchkinCard}, \hyperpage{20}
+  \item {hasArmor}
+    \subitem {PlayerStats}, \hyperpage{24}
+  \item {hasHat}
+    \subitem {PlayerStats}, \hyperpage{24}
+  \item {hasShoes}
+    \subitem {PlayerStats}, \hyperpage{24}
+  \item {hat}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+
+  \indexspace
+
+  \item {id}
+    \subitem {Button}, \hyperpage{13}
+  \item {InputEvent}, \hyperpage{16}
+    \subitem {type}, \hyperpage{16}
+  \item {InputEvent.h}, \hyperpage{32}
+    \subitem {EventType}, \hyperpage{32}
+    \subitem {KeyPress}, \hyperpage{32}
+    \subitem {KeyRelease}, \hyperpage{32}
+    \subitem {LmPress}, \hyperpage{32}
+    \subitem {LmRelease}, \hyperpage{32}
+    \subitem {RmPress}, \hyperpage{32}
+    \subitem {RmRelease}, \hyperpage{32}
+  \item {item}
+    \subitem {cardtypeaction}, \hyperpage{9}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {itemBuff}
+    \subitem {cardtypeaction}, \hyperpage{9}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {itemEffect}
+    \subitem {MunchkinCard}, \hyperpage{21}
+  \item {itemEffects}
+    \subitem {PlayerStats}, \hyperpage{24}
+  \item {itemLarge}
+    \subitem {MunchkinCard}, \hyperpage{21}
+  \item {itemNeeds}
+    \subitem {MunchkinCard}, \hyperpage{21}
+  \item {ItemType}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {itemType}
+    \subitem {MunchkinCard}, \hyperpage{21}
+  \item {itemValue}
+    \subitem {MunchkinCard}, \hyperpage{21}
+
+  \indexspace
+
+  \item {joker}
+    \subitem {cardtypeaction}, \hyperpage{9}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+
+  \indexspace
+
+  \item {KeyPress}
+    \subitem {InputEvent.h}, \hyperpage{32}
+  \item {KeyRelease}
+    \subitem {InputEvent.h}, \hyperpage{32}
+
+  \indexspace
+
+  \item {lclick}
+    \subitem {GameState.h}, \hyperpage{32}
+  \item {LmPress}
+    \subitem {InputEvent.h}, \hyperpage{32}
+  \item {LmRelease}
+    \subitem {InputEvent.h}, \hyperpage{32}
+  \item {loadCameraCalibration}
+    \subitem {main.cpp}, \hyperpage{35}
+  \item {logic}
+    \subitem {main.cpp}, \hyperpage{35}
+  \item {looseClass}
+    \subitem {badthings}, \hyperpage{7}
+  \item {looseHand}
+    \subitem {badthings}, \hyperpage{7}
+  \item {looseLevel}
+    \subitem {badthings}, \hyperpage{8}
+  \item {lvl}
+    \subitem {PlayerStats}, \hyperpage{24}
+  \item {lvlUp}
+    \subitem {cardtypeaction}, \hyperpage{9}
+    \subitem {MunchkinCard}, \hyperpage{21}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{35}
+  \item {main.cpp}, \hyperpage{32}
+    \subitem {arucoSquareDimension}, \hyperpage{36}
+    \subitem {button\_continue}, \hyperpage{33}
+    \subitem {button\_end\_turn}, \hyperpage{34}
+    \subitem {button\_exit}, \hyperpage{34}
+    \subitem {calbirationSquareDimension}, \hyperpage{36}
+    \subitem {callBackFunction}, \hyperpage{34}
+    \subitem {cameraCalibration}, \hyperpage{34}
+    \subitem {cameraCalibrationProcess}, \hyperpage{34}
+    \subitem {cards}, \hyperpage{36}
+    \subitem {chessboardDimensions}, \hyperpage{37}
+    \subitem {chooseCardColor}, \hyperpage{34}
+    \subitem {createArucoMarkers}, \hyperpage{35}
+    \subitem {createKnownBoardPositions}, \hyperpage{35}
+    \subitem {functMap}, \hyperpage{37}
+    \subitem {gamestate}, \hyperpage{37}
+    \subitem {getChessboardCorners}, \hyperpage{35}
+    \subitem {loadCameraCalibration}, \hyperpage{35}
+    \subitem {logic}, \hyperpage{35}
+    \subitem {main}, \hyperpage{35}
+    \subitem {saveCameraCalibration}, \hyperpage{36}
+    \subitem {startWebcamMonitoring}, \hyperpage{36}
+    \subitem {update}, \hyperpage{36}
+  \item {maleDeadFemaleLevelDown}
+    \subitem {badthings}, \hyperpage{8}
+  \item {markerCorner}
+    \subitem {MouseParams}, \hyperpage{17}
+  \item {markerID}
+    \subitem {MunchkinCard}, \hyperpage{21}
+  \item {markerId}
+    \subitem {MouseParams}, \hyperpage{17}
+  \item {monsStrength}
+    \subitem {MunchkinCard}, \hyperpage{21}
+  \item {monster}
+    \subitem {cardtypeaction}, \hyperpage{9}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {MouseEvent}
+    \subitem {GameState.h}, \hyperpage{31}
+  \item {MouseParams}, \hyperpage{16}
+    \subitem {clickP}, \hyperpage{16}
+    \subitem {event}, \hyperpage{17}
+    \subitem {markerCorner}, \hyperpage{17}
+    \subitem {markerId}, \hyperpage{17}
+    \subitem {poly}, \hyperpage{17}
+    \subitem {tutText}, \hyperpage{17}
+  \item {mouseparams}
+    \subitem {GameState}, \hyperpage{15}
+  \item {move}
+    \subitem {GameState.h}, \hyperpage{32}
+  \item {munch\_tut}, \hyperpage{10}
+    \subitem {Color}, \hyperpage{10}
+  \item {munchClass}
+    \subitem {cardtypeaction}, \hyperpage{9}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {munchClasses}
+    \subitem {PlayerStats}, \hyperpage{24}
+  \item {MunchkinCard}, \hyperpage{17}
+    \subitem {badThings}, \hyperpage{20}
+    \subitem {badThingsFunc}, \hyperpage{20}
+    \subitem {bonis}, \hyperpage{20}
+    \subitem {cardName}, \hyperpage{20}
+    \subitem {cardsConstr}, \hyperpage{19}
+    \subitem {debuff}, \hyperpage{20}
+    \subitem {effect}, \hyperpage{20}
+    \subitem {handsNeeded}, \hyperpage{20}
+    \subitem {itemEffect}, \hyperpage{21}
+    \subitem {itemLarge}, \hyperpage{21}
+    \subitem {itemNeeds}, \hyperpage{21}
+    \subitem {itemType}, \hyperpage{21}
+    \subitem {itemValue}, \hyperpage{21}
+    \subitem {lvlUp}, \hyperpage{21}
+    \subitem {markerID}, \hyperpage{21}
+    \subitem {monsStrength}, \hyperpage{21}
+    \subitem {MunchkinCard}, \hyperpage{18, 19}
+    \subitem {operator=}, \hyperpage{19}
+    \subitem {parentCardType}, \hyperpage{22}
+    \subitem {strengthBoni}, \hyperpage{22}
+    \subitem {treasures}, \hyperpage{22}
+    \subitem {type}, \hyperpage{22}
+  \item {MunchkinCards.cpp}, \hyperpage{37}
+  \item {MunchkinCards.h}, \hyperpage{37}
+    \subitem {armor}, \hyperpage{38}
+    \subitem {boni}, \hyperpage{38}
+    \subitem {CardType}, \hyperpage{38}
+    \subitem {clothing}, \hyperpage{38}
+    \subitem {curse}, \hyperpage{38}
+    \subitem {door}, \hyperpage{39}
+    \subitem {hat}, \hyperpage{38}
+    \subitem {item}, \hyperpage{38}
+    \subitem {itemBuff}, \hyperpage{38}
+    \subitem {ItemType}, \hyperpage{38}
+    \subitem {joker}, \hyperpage{38}
+    \subitem {lvlUp}, \hyperpage{38}
+    \subitem {monster}, \hyperpage{38}
+    \subitem {munchClass}, \hyperpage{38}
+    \subitem {ParentCardType}, \hyperpage{38}
+    \subitem {race}, \hyperpage{38}
+    \subitem {removeCard}, \hyperpage{38}
+    \subitem {shoes}, \hyperpage{38}
+    \subitem {treasure}, \hyperpage{39}
+    \subitem {weapon}, \hyperpage{38}
+  \item {munchRaces}
+    \subitem {PlayerStats}, \hyperpage{24}
+
+  \indexspace
+
+  \item {none}
+    \subitem {GameState.h}, \hyperpage{32}
+
+  \indexspace
+
+  \item {operator=}
+    \subitem {Button}, \hyperpage{12}
+    \subitem {MunchkinCard}, \hyperpage{19}
+  \item {origin}
+    \subitem {Button}, \hyperpage{13}
+
+  \indexspace
+
+  \item {ParentCardType}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {parentCardType}
+    \subitem {MunchkinCard}, \hyperpage{22}
+  \item {player01}
+    \subitem {GameState}, \hyperpage{15}
+  \item {playerDies}
+    \subitem {badthings}, \hyperpage{8}
+  \item {PlayerStats}, \hyperpage{22}
+    \subitem {availableClasses}, \hyperpage{23}
+    \subitem {availableRaces}, \hyperpage{23}
+    \subitem {bonis}, \hyperpage{23}
+    \subitem {carriesLargeItems}, \hyperpage{23}
+    \subitem {curses}, \hyperpage{23}
+    \subitem {hands}, \hyperpage{24}
+    \subitem {hasArmor}, \hyperpage{24}
+    \subitem {hasHat}, \hyperpage{24}
+    \subitem {hasShoes}, \hyperpage{24}
+    \subitem {itemEffects}, \hyperpage{24}
+    \subitem {lvl}, \hyperpage{24}
+    \subitem {munchClasses}, \hyperpage{24}
+    \subitem {munchRaces}, \hyperpage{24}
+    \subitem {runStrength}, \hyperpage{25}
+    \subitem {sex}, \hyperpage{25}
+    \subitem {strength}, \hyperpage{25}
+  \item {poll\_click}
+    \subitem {Button}, \hyperpage{13}
+  \item {poly}
+    \subitem {MouseParams}, \hyperpage{17}
+
+  \indexspace
+
+  \item {race}
+    \subitem {cardtypeaction}, \hyperpage{10}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {rclick}
+    \subitem {GameState.h}, \hyperpage{32}
+  \item {rect}
+    \subitem {Button}, \hyperpage{13}
+  \item {remove\_card}
+    \subitem {GameState}, \hyperpage{15}
+  \item {removeCard}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {RmPress}
+    \subitem {InputEvent.h}, \hyperpage{32}
+  \item {RmRelease}
+    \subitem {InputEvent.h}, \hyperpage{32}
+  \item {run\_away}
+    \subitem {GameState}, \hyperpage{15}
+  \item {runAway}
+    \subitem {CardTypeActions.cpp}, \hyperpage{29}
+  \item {runStrength}
+    \subitem {PlayerStats}, \hyperpage{25}
+
+  \indexspace
+
+  \item {saveCameraCalibration}
+    \subitem {main.cpp}, \hyperpage{36}
+  \item {sex}
+    \subitem {PlayerStats}, \hyperpage{25}
+  \item {shoes}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+  \item {should\_continue}
+    \subitem {GameState}, \hyperpage{15}
+  \item {should\_exit}
+    \subitem {GameState}, \hyperpage{15}
+  \item {startWebcamMonitoring}
+    \subitem {main.cpp}, \hyperpage{36}
+  \item {strength}
+    \subitem {PlayerStats}, \hyperpage{25}
+  \item {strengthBoni}
+    \subitem {MunchkinCard}, \hyperpage{22}
+
+  \indexspace
+
+  \item {topleft}
+    \subitem {Button.h}, \hyperpage{29}
+  \item {topright}
+    \subitem {Button.h}, \hyperpage{29}
+  \item {treasure}
+    \subitem {MunchkinCards.h}, \hyperpage{39}
+  \item {treasures}
+    \subitem {MunchkinCard}, \hyperpage{22}
+  \item {TTMunchkinTut.cpp}, \hyperpage{39}
+  \item {tutText}
+    \subitem {MouseParams}, \hyperpage{17}
+  \item {type}
+    \subitem {InputEvent}, \hyperpage{16}
+    \subitem {MunchkinCard}, \hyperpage{22}
+
+  \indexspace
+
+  \item {update}
+    \subitem {main.cpp}, \hyperpage{36}
+
+  \indexspace
+
+  \item {visible}
+    \subitem {Button}, \hyperpage{13}
+
+  \indexspace
+
+  \item {weapon}
+    \subitem {MunchkinCards.h}, \hyperpage{38}
+
+\end{theindex}
