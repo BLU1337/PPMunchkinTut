@@ -504,13 +504,32 @@ void cameraCalibrationProcess(Mat& cameraMatrix, Mat& distanceCoefficients)
 
 int main(int argv, char** argc)
 {
+	Mat cameraMatrix = Mat::eye(3, 3, CV_64F);
+
+	Mat distanceCoefficients;
 	//try
 	//{
 		//createArucoMarkers();
-	
-		Mat cameraMatrix = Mat::eye(3, 3, CV_64F);
-
-		Mat distanceCoefficients;
+	if (argv == 2)
+	{
+		if (std::string(argc[1]) == "-c")
+		{
+			cameraCalibrationProcess(cameraMatrix, distanceCoefficients);
+			return 0;
+		}
+		else if (std::string(argc[1]) == "-g")
+		{
+			createArucoMarkers();
+			return 0;
+		}
+		else
+		{
+			std::cerr << "Invalid command line option" << std::endl;
+			return 1;
+		}
+	}
+	else if(argv == 1)
+	{
 
 		cards = MunchkinCard::cardsConstr();
 		gamestate.player01.sex = "male";
@@ -564,12 +583,18 @@ int main(int argv, char** argc)
 		functMap[CardType::itemBuff] = cardtypeaction::itemBuff;
 		functMap[CardType::joker] = cardtypeaction::joker;
 		functMap[CardType::lvlUp] = cardtypeaction::lvlUp;
-	
+
 		//cameraCalibrationProcess(cameraMatrix, distanceCoefficients);
 		loadCameraCalibration("CameraCalibration", cameraMatrix, distanceCoefficients);
 		startWebcamMonitoring(cameraMatrix, distanceCoefficients, 0.005f);
 
 		return 0;
+	}
+	else
+	{
+		std::cerr << "Invalid command line arguments" << std::endl;
+		return 1;
+	}
 	//}
 	//catch(std::exception& ex)
 	//{
