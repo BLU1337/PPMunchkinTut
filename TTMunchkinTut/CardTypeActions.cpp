@@ -114,6 +114,7 @@ CardTypeRetVal cardtypeaction::munchClass(GameState & gamestate, const MunchkinC
 		}
 		gamestate.player01.availableClasses++;
 		gamestate.mouseparams.tutText = { "Du hast eine Klasse abgelegt!", "Um fortzufahren druecke den", "gruenen Button!" };
+		gamestate.remove_card = false;
 	}
 	else
 	{
@@ -153,6 +154,7 @@ CardTypeRetVal cardtypeaction::race(GameState & gamestate, const MunchkinCard & 
 		}
 		gamestate.player01.availableRaces++;
 		gamestate.mouseparams.tutText = { "Du hast eine Rasse abgelegt!", "Um fortzufahren druecke den", "gruenen Button!" };
+		gamestate.remove_card = false;
 	}
 	else
 	{
@@ -190,6 +192,7 @@ CardTypeRetVal cardtypeaction::item(GameState & gamestate, const MunchkinCard & 
 				if (itr != gamestate.player01.bonis.end()) gamestate.player01.bonis.erase(itr);
 			}
 			gamestate.mouseparams.tutText = { "Du hast einen Boni abgelegt!", "Um fortzufahren druecke den", "gruenen Button!" };
+			gamestate.remove_card = false;
 		}
 		else
 		{
@@ -214,6 +217,7 @@ CardTypeRetVal cardtypeaction::item(GameState & gamestate, const MunchkinCard & 
 			gamestate.player01.strength -= card.strengthBoni;
 			gamestate.player01.hasHat = false;
 			gamestate.mouseparams.tutText = { "Du hast einen Hut abgelegt!", "Du verlierst bonus Staerke:", std::to_string(card.strengthBoni), "Um fortzufahren druecke den", "gruenen Button!" };
+			gamestate.remove_card = false;
 		}
 		else
 		{
@@ -247,6 +251,7 @@ CardTypeRetVal cardtypeaction::item(GameState & gamestate, const MunchkinCard & 
 			gamestate.player01.strength -= card.strengthBoni;
 			gamestate.player01.hasArmor = false;
 			gamestate.mouseparams.tutText = { "Du hast eine Rüstung abgelegt!", "Du verlierst bonus Staerke:", std::to_string(card.strengthBoni), "Um fortzufahren druecke den", "gruenen Button!" };
+			gamestate.remove_card = false;
 		}
 		else
 		{
@@ -280,6 +285,7 @@ CardTypeRetVal cardtypeaction::item(GameState & gamestate, const MunchkinCard & 
 			gamestate.player01.strength -= card.strengthBoni;
 			gamestate.player01.hasShoes = false;
 			gamestate.mouseparams.tutText = { "Du hast deine Schuhe abgelegt!", "Du verlierst bonus Staerke:", std::to_string(card.strengthBoni), "Um fortzufahren druecke den", "gruenen Button!" };
+			gamestate.remove_card = false;
 		}
 		else
 		{
@@ -312,6 +318,7 @@ CardTypeRetVal cardtypeaction::item(GameState & gamestate, const MunchkinCard & 
 			}
 			gamestate.player01.strength -= card.strengthBoni;
 			gamestate.mouseparams.tutText = { "Du hast Kleidung abgelegt!", "Du verlierst bonus Staerke:", std::to_string(card.strengthBoni), "Um fortzufahren druecke den", "gruenen Button!" };
+			gamestate.remove_card = false;
 		}
 		else
 		{
@@ -340,6 +347,7 @@ CardTypeRetVal cardtypeaction::item(GameState & gamestate, const MunchkinCard & 
 			gamestate.player01.hands += card.handsNeeded;
 			if (card.itemLarge == true) gamestate.player01.carriesLargeItems = false;
 			gamestate.mouseparams.tutText = { "Du hast eine Waffe abgelegt!", "Du verlierst bonus Staerke:", std::to_string(card.strengthBoni), "Um fortzufahren druecke den", "gruenen Button!" };
+			gamestate.remove_card = false;
 		}
 		else
 		{
@@ -386,6 +394,7 @@ CardTypeRetVal cardtypeaction::itemBuff(GameState & gamestate, const MunchkinCar
 		}
 		gamestate.player01.strength -= card.strengthBoni;
 		gamestate.mouseparams.tutText = { "Du hast einen Gegenstandverstaerker abgelegt!", "Du verlierst bonus Staerke:", std::to_string(card.strengthBoni), "Um fortzufahren druecke den", "gruenen Button!" };
+		gamestate.remove_card = false;
 	}
 	else
 	{

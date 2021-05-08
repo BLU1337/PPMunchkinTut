@@ -1,0 +1,48 @@
+\hypertarget{_bad_things_8h}{}\doxysection{C\+:/\+Users/\+Jlueb/source/repos/\+TTMunchkin\+Tut/\+TTMunchkin\+Tut/\+Bad\+Things.h File Reference}
+\label{_bad_things_8h}\index{C:/Users/Jlueb/source/repos/TTMunchkinTut/TTMunchkinTut/BadThings.h@{C:/Users/Jlueb/source/repos/TTMunchkinTut/TTMunchkinTut/BadThings.h}}
+
+
+Bad Things Functions for Munchkin Cards.  
+
+
+{\ttfamily \#include $<$functional$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_bad_things_ret_val}{Bad\+Things\+Ret\+Val}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacebadthings}{badthings}}
+\begin{DoxyCompactList}\small\item\em Namespace containing all bad things functions. These can be assigned to a specific card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_bad_things_8h_a61c6d85dcb8fb61111e406f1e6bcdc4b}\label{_bad_things_8h_a61c6d85dcb8fb61111e406f1e6bcdc4b}} 
+using \mbox{\hyperlink{_bad_things_8h_a61c6d85dcb8fb61111e406f1e6bcdc4b}{Bad\+Things\+Func}} = std\+::function$<$ \mbox{\hyperlink{struct_bad_things_ret_val}{Bad\+Things\+Ret\+Val}}(\mbox{\hyperlink{struct_game_state}{Game\+State}} \&, const \mbox{\hyperlink{class_munchkin_card}{Munchkin\+Card}} \&)$>$
+\begin{DoxyCompactList}\small\item\em Callback type for bad things behaviour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_bad_things_ret_val}{Bad\+Things\+Ret\+Val}} \mbox{\hyperlink{namespacebadthings_ac0edcc3a56164a907176488b190523c3}{badthings\+::empty\+Bad\+Things}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} \&gamestate, const \mbox{\hyperlink{class_munchkin_card}{Munchkin\+Card}} \&card)
+\begin{DoxyCompactList}\small\item\em Does nothing (placeholder) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bad_things_ret_val}{Bad\+Things\+Ret\+Val}} \mbox{\hyperlink{namespacebadthings_abea9500ca95b8ab6be552fe80ef19505}{badthings\+::loose\+Hand}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} \&gamestate, const \mbox{\hyperlink{class_munchkin_card}{Munchkin\+Card}} \&card)
+\begin{DoxyCompactList}\small\item\em Player looses 1 hand and the function checks whether or not he can still carry all his items that need hands. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bad_things_ret_val}{Bad\+Things\+Ret\+Val}} \mbox{\hyperlink{namespacebadthings_aed26f7cb5b47598fb7455ac51c70dbc9}{badthings\+::loose\+Class}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} \&gamestate, const \mbox{\hyperlink{class_munchkin_card}{Munchkin\+Card}} \&card)
+\begin{DoxyCompactList}\small\item\em Player looses his class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bad_things_ret_val}{Bad\+Things\+Ret\+Val}} \mbox{\hyperlink{namespacebadthings_a2be1fc8c63be1810ca0cd8ea0c20badf}{badthings\+::player\+Dies}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} \&gamestate, const \mbox{\hyperlink{class_munchkin_card}{Munchkin\+Card}} \&card)
+\begin{DoxyCompactList}\small\item\em Player dies. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bad_things_ret_val}{Bad\+Things\+Ret\+Val}} \mbox{\hyperlink{namespacebadthings_af6d4f86f38e62793b97393ba269682ef}{badthings\+::loose\+Level}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} \&gamestate, const \mbox{\hyperlink{class_munchkin_card}{Munchkin\+Card}} \&card)
+\begin{DoxyCompactList}\small\item\em Player looses 1 level. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_bad_things_ret_val}{Bad\+Things\+Ret\+Val}} \mbox{\hyperlink{namespacebadthings_ac5792f853abdbbebee408316260e0c9a}{badthings\+::male\+Dead\+Female\+Level\+Down}} (\mbox{\hyperlink{struct_game_state}{Game\+State}} \&gamestate, const \mbox{\hyperlink{class_munchkin_card}{Munchkin\+Card}} \&card)
+\begin{DoxyCompactList}\small\item\em Male Players die. Female players loose 1 level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bad Things Functions for Munchkin Cards. 
+
+\begin{DoxyAuthor}{Author}
+Benjamin Lueben
+\end{DoxyAuthor}
+In this class all the Bad\+Things functions for every Munchkin Card are defined. 

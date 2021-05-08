@@ -1,0 +1,171 @@
+\hypertarget{_munchkin_cards_8h}{}\doxysection{C\+:/\+Users/\+Jlueb/source/repos/\+TTMunchkin\+Tut/\+TTMunchkin\+Tut/\+Munchkin\+Cards.h File Reference}
+\label{_munchkin_cards_8h}\index{C:/Users/Jlueb/source/repos/TTMunchkinTut/TTMunchkinTut/MunchkinCards.h@{C:/Users/Jlueb/source/repos/TTMunchkinTut/TTMunchkinTut/MunchkinCards.h}}
+
+
+Munchkin\+Cards class in which all parameters for the munchkin cards are stored.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}opencv2/opencv.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgcodecs.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/imgproc.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include \char`\"{}Game\+State.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Bad\+Things.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_munchkin_card}{Munchkin\+Card}}
+\begin{DoxyCompactList}\small\item\em class of munchkin cards with params that could be needed for a single card \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196f}{Parent\+Card\+Type}} \{ \mbox{\hyperlink{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196fa2feaaf89c21770ea5c21196bc33848dd}{door}}
+, \mbox{\hyperlink{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196fa82210e61e8f415525262575b20fae48d}{treasure}}
+ \}
+\begin{DoxyCompactList}\small\item\em enum class for parent card types \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cd}{Card\+Type}} \{ \newline
+\mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdaaa06acf0977feec2a3f5a7a1f9d79ef5}{curse}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdad4d73ac329d1569a7106ad475b1a22f8}{munch\+Class}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda9facbf452def2d7efc5b5c48cdb837fa}{joker}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdad9537b5f49edae3d60bbe50f02b7829d}{lvl\+Up}}
+, \newline
+\mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdaf54b207a9539b03fc8e23ac2c2fa67ee}{item\+Buff}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda8bf4e6addd72a9c4c4714708d2941528}{monster}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda2e2a7a2e57d1578bf33a559b20c463f6}{race}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda447b7147e84be512208dcc0995d67ebc}{item}}
+, \newline
+\mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdaa46d2681ddc12752408a8ff16f499b18}{remove\+Card}}
+ \}
+\begin{DoxyCompactList}\small\item\em enum class for \char`\"{}child\char`\"{} card Types \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66b}{Item\+Type}} \{ \newline
+\mbox{\hyperlink{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba3ee45b1ff632881c66b6b92f45a47fd7}{armor}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66bab0a8b6f820479900e34d34f6b8a4af73}{shoes}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba46b5e59b2fd342bf8fee10c561958725}{hat}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba4f9b30bcb757e9f60412d810c46617be}{boni}}
+, \newline
+\mbox{\hyperlink{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba282aa351a2bd30655fbc060bd4f33766}{weapon}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba9facbf452def2d7efc5b5c48cdb837fa}{joker}}
+, \mbox{\hyperlink{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba50cf19912960f65490b334ea9c196eea}{clothing}}
+ \}
+\begin{DoxyCompactList}\small\item\em enum class of item types \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Munchkin\+Cards class in which all parameters for the munchkin cards are stored. 
+
+\begin{DoxyAuthor}{Author}
+Benjamin Lueben
+\end{DoxyAuthor}
+In this class the munchkin Card object is defined with every parameter the card could have and with custom constructors which could be used to define the cards more easily 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cd}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cd}} 
+\index{MunchkinCards.h@{MunchkinCards.h}!CardType@{CardType}}
+\index{CardType@{CardType}!MunchkinCards.h@{MunchkinCards.h}}
+\doxysubsubsection{\texorpdfstring{CardType}{CardType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cd}{Card\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+enum class for \char`\"{}child\char`\"{} card Types 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{curse@{curse}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!curse@{curse}}}\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdaaa06acf0977feec2a3f5a7a1f9d79ef5}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdaaa06acf0977feec2a3f5a7a1f9d79ef5}} 
+curse&card type curse \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{munchClass@{munchClass}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!munchClass@{munchClass}}}\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdad4d73ac329d1569a7106ad475b1a22f8}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdad4d73ac329d1569a7106ad475b1a22f8}} 
+munch\+Class&card type munchkin class \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{joker@{joker}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!joker@{joker}}}\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda9facbf452def2d7efc5b5c48cdb837fa}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda9facbf452def2d7efc5b5c48cdb837fa}} 
+joker&card type joker \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{lvlUp@{lvlUp}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!lvlUp@{lvlUp}}}\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdad9537b5f49edae3d60bbe50f02b7829d}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdad9537b5f49edae3d60bbe50f02b7829d}} 
+lvl\+Up&card type level up \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{itemBuff@{itemBuff}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!itemBuff@{itemBuff}}}\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdaf54b207a9539b03fc8e23ac2c2fa67ee}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdaf54b207a9539b03fc8e23ac2c2fa67ee}} 
+item\+Buff&card type item buff \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{monster@{monster}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!monster@{monster}}}\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda8bf4e6addd72a9c4c4714708d2941528}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda8bf4e6addd72a9c4c4714708d2941528}} 
+monster&card type monster \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{race@{race}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!race@{race}}}\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda2e2a7a2e57d1578bf33a559b20c463f6}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda2e2a7a2e57d1578bf33a559b20c463f6}} 
+race&card type munchkin race \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{item@{item}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!item@{item}}}\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda447b7147e84be512208dcc0995d67ebc}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cda447b7147e84be512208dcc0995d67ebc}} 
+item&card type item \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{removeCard@{removeCard}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!removeCard@{removeCard}}}\mbox{\Hypertarget{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdaa46d2681ddc12752408a8ff16f499b18}\label{_munchkin_cards_8h_a76b9e96d86b331202dcc0fba38b758cdaa46d2681ddc12752408a8ff16f499b18}} 
+remove\+Card&param to signal removing a card \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66b}\label{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66b}} 
+\index{MunchkinCards.h@{MunchkinCards.h}!ItemType@{ItemType}}
+\index{ItemType@{ItemType}!MunchkinCards.h@{MunchkinCards.h}}
+\doxysubsubsection{\texorpdfstring{ItemType}{ItemType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66b}{Item\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+enum class of item types 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{armor@{armor}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!armor@{armor}}}\mbox{\Hypertarget{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba3ee45b1ff632881c66b6b92f45a47fd7}\label{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba3ee45b1ff632881c66b6b92f45a47fd7}} 
+armor&item type armor \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{shoes@{shoes}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!shoes@{shoes}}}\mbox{\Hypertarget{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66bab0a8b6f820479900e34d34f6b8a4af73}\label{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66bab0a8b6f820479900e34d34f6b8a4af73}} 
+shoes&item class shoes \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{hat@{hat}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!hat@{hat}}}\mbox{\Hypertarget{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba46b5e59b2fd342bf8fee10c561958725}\label{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba46b5e59b2fd342bf8fee10c561958725}} 
+hat&item class hat \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{boni@{boni}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!boni@{boni}}}\mbox{\Hypertarget{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba4f9b30bcb757e9f60412d810c46617be}\label{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba4f9b30bcb757e9f60412d810c46617be}} 
+boni&item class boni \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{weapon@{weapon}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!weapon@{weapon}}}\mbox{\Hypertarget{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba282aa351a2bd30655fbc060bd4f33766}\label{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba282aa351a2bd30655fbc060bd4f33766}} 
+weapon&item class weapon \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{joker@{joker}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!joker@{joker}}}\mbox{\Hypertarget{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba9facbf452def2d7efc5b5c48cdb837fa}\label{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba9facbf452def2d7efc5b5c48cdb837fa}} 
+joker&item class joker \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{clothing@{clothing}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!clothing@{clothing}}}\mbox{\Hypertarget{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba50cf19912960f65490b334ea9c196eea}\label{_munchkin_cards_8h_a443f647757dde85043b49343f5cbe66ba50cf19912960f65490b334ea9c196eea}} 
+clothing&item class clothing \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196f}\label{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196f}} 
+\index{MunchkinCards.h@{MunchkinCards.h}!ParentCardType@{ParentCardType}}
+\index{ParentCardType@{ParentCardType}!MunchkinCards.h@{MunchkinCards.h}}
+\doxysubsubsection{\texorpdfstring{ParentCardType}{ParentCardType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196f}{Parent\+Card\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+enum class for parent card types 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{door@{door}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!door@{door}}}\mbox{\Hypertarget{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196fa2feaaf89c21770ea5c21196bc33848dd}\label{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196fa2feaaf89c21770ea5c21196bc33848dd}} 
+door&card type door \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{treasure@{treasure}!MunchkinCards.h@{MunchkinCards.h}}\index{MunchkinCards.h@{MunchkinCards.h}!treasure@{treasure}}}\mbox{\Hypertarget{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196fa82210e61e8f415525262575b20fae48d}\label{_munchkin_cards_8h_acd1ffb1b7a227db165793d4e37ce196fa82210e61e8f415525262575b20fae48d}} 
+treasure&card type treasure \\
+\hline
+
+\end{DoxyEnumFields}
